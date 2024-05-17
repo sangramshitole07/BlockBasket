@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collection centre Frontend</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <script>
+      function populateDateTime(inputId) {
+        const inputField = document.getElementById(inputId);
+        const currentDate = new Date();
+        if (inputId === "date") {
+          const date = currentDate.toISOString().slice(0, 10);
+          inputField.value = date;
+        } else if (inputId === "time") {
+          const time = currentDate.toTimeString().slice(0, 8);
+          inputField.value = time;
+        }
+        inputField.readOnly = true; // Set readonly attribute
+      }
+    </script>
+  </head>
+  <body>
+    <h1>BlockBasket</h1>
+
+    <!-- Add Dairy Record Form -->
+    <h2>Add Dairy Record</h2>
+    <label for="dairyBatchNumber">Batch Number:</label>
+    <input type="text" id="dairyBatchNumber" /><br />
+    <label for="cowBreed">Cow Breed:</label>
+    <input type="text" id="cowBreed" /><br />
+    <label for="quantityOfMilk">Quantity of Milk:</label>
+    <input type="text" id="quantityOfMilk" /><br />
+    <label for="milkingMethod">Milking Method:</label>
+    <select id="milkingMethod">
+      <option value="0">Hand</option>
+      <option value="1">Machine</option></select
+    ><br />
+    <label for="date">Date:</label>
+    <input type="text" id="date" onclick="populateDateTime('date')" /><br />
+    <label for="time">Time:</label>
+    <input type="text" id="time" onclick="populateDateTime('time')" /><br />
+    <label for="location">Location:</label>
+    <input type="text" id="location" /><br />
+    <button onclick="addDairyRecord()">Add Dairy Record</button>
+
+    <!-- Get Supply Chain Data Form -->
+  </body>
+</html>

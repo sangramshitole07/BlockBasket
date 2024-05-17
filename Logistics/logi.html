@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logistic Frontend</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+      function populateDate(inputId) {
+        const inputField = document.getElementById(inputId);
+        const currentDate = new Date();
+        const date = currentDate.toISOString().slice(0, 10);
+        inputField.value = date;
+        inputField.readOnly = true; // Set readonly attribute
+      }
+
+      function populateTime(inputId) {
+        const inputField = document.getElementById(inputId);
+        const currentDate = new Date();
+        const time = currentDate.toTimeString().slice(0, 8);
+        inputField.value = time;
+        inputField.readOnly = true; // Set readonly attribute
+      }
+    </script>
+  </head>
+  <body>
+    <h1>BlockBasket</h1>
+
+    <!-- Add Logistics Record Form -->
+    <h2>Add Logistics Record</h2>
+    <label for="logibatch">Batch Number:</label>
+    <input type="text" id="logibatch" /><br />
+    <label for="sender">Sender Address:</label>
+    <input type="text" id="sender" /><br />
+    <label for="receiver">Receiver Address:</label>
+    <input type="text" id="receiver" /><br />
+    <label for="transportation">Transportation Mode:</label>
+    <input type="text" id="transportation" /><br />
+    <label for="date_receiving">Date of Receiving:</label>
+    <input type="date" id="date_receiving" /><br />
+    <label for="time_receiving">Time of Receiving:</label>
+    <input type="time" id="time_receiving" /><br />
+    <label for="date_shiping">Date of Shipping:</label>
+    <input
+      type="text"
+      id="date_shiping"
+      onclick="populateDate('date_shiping')"
+    /><br />
+    <label for="time_shiping">Time of Shipping:</label>
+    <input
+      type="text"
+      id="time_shiping"
+      onclick="populateTime('time_shiping')"
+    /><br />
+    <label for="location_receiving">Location of Receiving:</label>
+    <input type="text" id="location_receiving" /><br />
+    <label for="pincode_receving">Pincode of Receiving:</label>
+    <input type="text" id="pincode_receving" /><br />
+    <label for="location_shiping">Location of Shipping:</label>
+    <input type="text" id="location_shiping" /><br />
+    <label for="pincode_shiping">Pincode of Shipping:</label>
+    <input type="text" id="pincode_shiping" /><br />
+    <label for="additional">Additional Information:</label>
+    <input type="text" id="additional" /><br />
+    <button onclick="addLogisticsRecord()">Add Logistics Record</button>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supply Chain Frontend</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+      function populateDateTime(inputId) {
+        const inputField = document.getElementById(inputId);
+        const currentDate = new Date();
+        if (inputId === "date_packaging") {
+          const date = currentDate.toISOString().slice(0, 10);
+          inputField.value = date;
+        } else if (inputId === "time_packaging") {
+          const time = currentDate.toTimeString().slice(0, 8);
+          inputField.value = time;
+        }
+        inputField.readOnly = true; // Set readonly attribute
+      }
+    </script>
+  </head>
+  <body>
+    <h1>BlockBasket</h1>
+
+    <!-- Add Manufacturing Record Form -->
+    <h2>Add Manufacturing Record</h2>
+    <label for="batch_no">Batch Number:</label>
+    <input type="text" id="batch_no" /><br />
+    <label for="processes">Processes Done:</label>
+    <input type="text" id="processes" /><br />
+    <label for="allergen">Allergen Data:</label>
+    <input type="text" id="allergen" /><br />
+    <label for="nutritional">Nutritional Information:</label>
+    <input type="text" id="nutritional" /><br />
+    <label for="nutritional">Quantity:</label>
+    <input type="text" id="quantity" /><br />
+
+    <label for="additional_manufatcture">Storage Instructions:</label>
+    <input type="text" id="additional_manufatcture" /><br />
+    <label for="content">Contents of Pack:</label>
+    <input type="text" id="content" /><br />
+    <label for="date_packaging">Date:</label>
+    <input
+      type="text"
+      id="date_packaging"
+      onclick="populateDateTime('date_packaging')"
+    /><br />
+    <label for="time_packaging">Time:</label>
+    <input
+      type="text"
+      id="time_packaging"
+      onclick="populateDateTime('time_packaging')"
+    /><br />
+    <label for="location_manufacturer">Location:</label>
+    <input type="text" id="location_manufacturer" /><br />
+    <button onclick="addManufacturingRecord()">Add Manufacturing Record</button>
+
+    
+  </body>
+</html>

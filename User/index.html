@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supply Chain DApp</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="BlockBasket.png" alt="Company Logo" id="company-logo" />
+        <h1>BlockBasket</h1>
+    </header>
+
+    <!-- Get Supply Chain Data Form -->
+    <section id="data-section">
+        <h2>Get Supply Chain Data</h2>
+        <label for="batchNumber">Batch Number:</label>
+        <input type="text" id="batchNumber" /><br />
+        <button onclick="getSupplyChainData()">Get Supply Chain Data</button>
+
+        <div class="data-box" id="dairy-data-box">
+            <p class="data-title">Dairy Data:</p>
+        </div>
+
+        <div class="data-box" id="manufacturing-data-box">
+            <p class="data-title">Manufacturing Data:</p>
+        </div>
+
+        <div class="data-box" id="logistics-data-box">
+            <p class="data-title">Logistics Data:</p>
+        </div>
+    </section>
+</body>
+</html>
