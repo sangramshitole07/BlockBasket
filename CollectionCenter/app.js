@@ -1,4 +1,4 @@
-// Connect to Ethereum provider
+// Connect to Ethereum provider we can use other currencies also
 if (typeof web3 !== "undefined") {
   web3 = new Web3(web3.currentProvider);
 } else {
